@@ -24,7 +24,7 @@ interface Options extends BaseOptions {
 
 ;(async (query: string) => {
   const querystring = await import('querystring')
-  const hmr = await import('./bridge.cjs')
+  const hmr = await import('./bridge.js')
 
   const controllers: Array<Controller> = []
 
@@ -55,7 +55,7 @@ interface Options extends BaseOptions {
 
   if (options['bud.indicator']) {
     const controllerModule = await import(
-      '../components/indicator/index.cjs'
+      '../components/indicator/index.js'
     )
     const controller = await controllerModule.make()
     controller?.update && controllers.push(controller)
@@ -64,9 +64,7 @@ interface Options extends BaseOptions {
   }
 
   if (options['bud.overlay']) {
-    const controllerModule = await import(
-      '../components/overlay/index.cjs'
-    )
+    const controllerModule = await import('../components/overlay/index.js')
     const controller = await controllerModule.make()
     controller?.update && controllers.push(controller)
 

@@ -1,5 +1,5 @@
 import {bind} from 'helpful-decorators'
-import stripAnsi = require('strip-ansi')
+import stripAnsi from 'strip-ansi'
 import type Webpack from 'webpack'
 
 interface Payload {
@@ -33,7 +33,7 @@ export class Controller {
       (a, c) => `${a}
         <div>
           <span>${c?.title ?? 'Compilation error'}</span>
-          <pre>${stripAnsi.default(c?.message) ?? ''}</pre>
+          <pre>${stripAnsi(c?.message) ?? ''}</pre>
         </div>`,
       ``,
     )

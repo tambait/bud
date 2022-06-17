@@ -9,8 +9,8 @@ import type {Bud} from '@roots/bud-framework'
  * @public
  */
 export const proxyClickInterceptor = (app: Bud) =>
-  app.hooks.filter('dev.middleware.enabled', []).includes('proxy')
-    ? `@roots/bud-client/lib/proxy-click-interceptor.cjs`
+  app.hooks.filter('dev.middleware.enabled')?.includes('proxy')
+    ? `@roots/bud-client/lib/proxy-click-interceptor.js`
     : null
 
 /**
@@ -22,7 +22,7 @@ export const proxyClickInterceptor = (app: Bud) =>
  * @public
  */
 export const overlay = (app: Bud) =>
-  `@roots/bud-client/lib/hmr/index.cjs?name=${app.name}&bud.overlay=${
+  `@roots/bud-client/lib/hmr/index.js?name=${app.name}&bud.overlay=${
     app.context.args.overlay
   }&bud.indicator=${app.context.args.indicator}&path=${app.hooks.filter(
     'dev.middleware.hot.options.path',

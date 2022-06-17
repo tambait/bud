@@ -1,17 +1,15 @@
 {
   "extends": "../../../config/tsconfig.json",
   "compilerOptions": {
-    "module": "commonjs",
-    "rootDir": "src",
-    "outDir": "lib",
-    "target": "es6"
+    "rootDir": "./src",
+    "outDir": "./lib",
   },
   "include": [
-    "src"
+    "./src"
   ],
   "exclude": [
-    "lib",
-    "node_modules"
+    "./lib",
+    "./node_modules"
   ],
   "references": [
     {"path": "./../bud/tsconfig.json"},
